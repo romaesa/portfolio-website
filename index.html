@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Intersection  observer</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSS file -->
+        <link rel="stylesheet" href="style.css">
+
+        <!-- Owl Carousel CSS files -->
+        <link rel = "stylesheet" href = "owl.carousel.min.css">
+        <link rel = "stylesheet" href = "owl.theme.default.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+          body{
+              background-color: black;
+          }
+          header{
+              height: 60vh;
+              width: 100%;
+              background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+              background-image: linear-gradient(rgba(17, 12, 12, 0.8), rgba(10, 6, 8, 0.397)) ,
+               url('https://qph.cf2.quoracdn.net/main-qimg-8155ed286399606b8ffa3cabd57e159b-lq') ;
+               position: relative;
+               box-shadow: 0px 5px 10px rgb(0, 0, 0, 0.2);
+      
+          }
+          nav {
+            
+              height: 70px;
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-family: sans serif;
+              background-color: black;
+              box-shadow: 0px 5px 10px rgb(0, 0, 0, 0.2);
+              background-position: fixed;
+          }
+          .logo{
+                 font-size: 2rem;
+                 letter-spacing: 2px;
+                 font-weight: BOLD;
+                 color: rgb(245, 238, 231);
+                 font-size: 25px;
+                 
+                 
+          }
+          .menue a{
+      text-decoration: none;
+      font-size: 20px;
+      margin: 20px;
+      color: rgb(245, 238, 231);
+      font-family: cursive;
+          }
+          .menue a:hover{
+      
+      color: #182d3d;
+      font-size: 20px;
+      
+          }
+          .signup a{
+      text-decoration: none;
+      font-size: 20px;
+      margin: 20px;
+      color: black; 
+              border-radius: 0.375rem  ;
+              padding: 5px 10px;
+              background: #777;
+              align-items: center;
+              display: inline-block;
+              
+      
+          }
+          .wrapper{
+      margin: 2px auto;
+     padding: 0 10%;
+    padding-bottom: 10px;
+    text-transform: capitalize;
+}
+.wrapper .btn1{
+    color: #f050ad;
+    text-align: center;
+    font-size: 45px;
+    padding-bottom: 15px;
+    text-shadow:  0 15px 10px rgb(0, 0, 0, 0.2);
+    font-family: cursive;
+    cursor: pointer;
+    padding:8px 15px ;
+    outline: none;
+    border: none;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 50px
+}
+.container{
+    margin-top: 40px;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    margin-right: 150px;
+    margin-left: 150px;
+
+}
+
+.box{
+    width: 80%;
+    height: 260px;
+    padding: 20px; 
+    text-align: center;
+    border-radius: 5px;
+    background-color: #252529;
+    box-shadow: 0px 5px 10px rgb(0, 0, 0, 0.2);
+    border: 2px solid rgb(146, 119, 245);
+
+}
+.box:hover{
+    letter-spacing: 1px;
+       transform: scale(1.03);
+       box-shadow: 0 10px 15px rgb(0, 0, 0,0.3);    
+       cursor: pointer;
+       background-color: rgb(32, 16, 46);
+       
+}
+.box img{
+    height: 100px;
+    width: 50%;
+    
+}
+.box h2{
+    color: #f0dddd;
+    padding: 10px 0;
+    font-size: 12px;
+}
+
+.btn{
+    color: #f0dddd;
+    padding:8px 15px ;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    background-color: black;
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.btn:hover{
+       letter-spacing: 1px;
+       transform: scale(1.03);
+       box-shadow: 0 10px 15px rgb(0, 0, 0,0.3);       
+
+}
+
+
+         
+      @media (max-width:770px) {
+          .wrapper{
+              padding: 4px;
+            
+          } 
+          .hero-section .hero {
+    max-width: 100%;
+    text-align: center;
+  }
+  
+      }
+      
+      
+      .gift-cards {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        text-align: left;
+       
+      }
+      .gift-cards img{
+          width: 80%;
+          overflow-clip-margin: content-box;
+          overflow: clip;
+          height: 300px;
+          border-radius: 50px;
+          margin-top: 30px;
+          
+      
+        }
+        .bg-light{
+          color: black;
+          font-family: cursive;
+          
+      
+        }
+        p{
+          display: block;
+          color: #f0dddd;
+          margin-block-start: 1em;
+          margin-block-end: 1em;
+          margin-inline-start: 0px;
+          margin-inline-end: 0px;
+      }
+       h3{
+          font-family: 'Times New Roman', Times, serif;
+          font-size: 25px;
+          font-weight: bold;
+          text-shadow: #777;
+      }
+      @media screen and (max-width: 780px) {
+          .gift-cards {
+            grid-template-columns: 1fr;
+          }
+          footer .icons{
+          flex-direction: column;
+          }
+          footer .icons ul li a{
+            font-size: 10px;
+          }
+          footer .fa{
+            font-size: 20px;
+            width: 30px;
+          }
+
+          .hero-section .hero h6{
+            font-size: 20px;
+          }
+           .container0{
+        
+            width: 200px;
+            height:10px ;
+            padding-top: 10px;
+          }
+          #btn7{
+            font-size: 10px;
+          }
+          .customer h2{
+            font-size: 12px;
+            font-weight: bold;
+          }
+          .box{
+            height:200px ;
+            width: 50%;
+          }
+          .box img{
+            width: 50%;
+            height: 50px;
+          }
+          .btn{
+            font-size: 10px;
+          }
+          h2{
+            font-size: 12px;
+            font-weight: bold;
+          }
+          
+      
+        header .menue a {
+         position: fixed;
+         left: -100%;
+         top: 75px;
+         width: 100%;
+         height: 100vh;
+         padding-top: 50px;
+         flex-direction: column;
+         transition: 0.3s ease;
+  }
+        
+      }
+      .container1 {
+          width: 70%;
+          text-align: center;
+          margin: 0 auto;
+          padding: 0 3rem;
+          line-height: 1.6;
+          background-color: #182d3d;
+          margin-top: 20px;
+          border-radius: 8px;
+          border: #f050ad;
+        }
+        .icons{
+        margin-top: 60px;
+        display: flex;
+      }
+      .icons ul{
+        text-align: center;
+        flex: 1;
+      
+      }
+      .icons ul li {
+         list-style: none;
+         display: inline-block;
+         margin:0  ;
+         padding:0  ;
+      }
+      .icons ul li a{
+        text-decoration: none;
+        font-size: 20px;
+      }
+      .fa {
+        padding: 10px;
+        font-size: 30px;
+        width: 40px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+      }
+      
+      .fa:hover {
+          opacity: 0.7;
+      }
+      
+      .fa-facebook {
+        background-color: #777;
+        color: rgb(7, 7, 8);
+        border-radius: 50%;
+      }
+  
+      .fa-github {
+        border-radius: 50%;
+        background-color: #777;
+        color: rgb(7, 7, 8);
+      }
+      .fa-linkedin{
+        border-radius: 50%;
+        background-color: #777;
+        color: rgb(7, 7, 8);
+      }
+      footer .footer-bottom {
+          background: #333;
+          padding: 1rem;
+          text-align: center;
+        }
+      
+        
+      </style>
+    </head>
+    <body>
+      <DIv id="showcase">
+        <header>
+            <nav>
+                <div class="logo">
+               
+                </div>
+                <div class="menue">
+                    <a href="#showcase">HOME</a>
+                    <a href="#icons">CONTACT</a>
+                    <a href="#container0">ABOUTME</a>
+                    <a href="#wrapper">SKILL</a>
+                </div>
+                <div class="signup">
+                    <a href="#">ROMAESA</a>
+                </div>
+                <div class="buttons">
+                  <a href="#wrapper" class="learn">Read More</a>
+                </div>
+                
+            </nav>
+            <div  id="container0" class="container0">  
+              <button id ="btn7"> ABOUT ME / WANT TO BE </button>  
+              </div>  
+            <section class="hero-section">
+              <div class="hero">
+                <h6>Mern Stack Development</h6>
+                <p>
+                  Join us in the exciting world of programming and turn your ideas into
+                  reality. Unlock the world of endless possibilities - learn to code and
+                  shape the digital future with us.
+                </p>
+              </div>
+            </section>
+        </header>
+        
+        
+    </div>     
+        
+
+        <section class = "customer">
+          <h2>LANGUAGES I AM WORKING WITH</h2>
+            <div class = "customer-container owl-carousel owl-theme">
+                <!-- customer -->
+                <article>
+                  <div class = "img-box">
+                      <img src = "download.png" alt = "customer"  >
+                  </div>
+
+                  <div class = "customer-text">
+                      <p>As i am doing prep in html i am creating some webpages using html and thier preference.I love to be made different website that are dynamic ready to manage different task.I am working since 1 year to work on different project .</p>
+
+                      
+                  </div>
+              </article>
+                <!-- end of customer -->
+
+                <!-- customer -->
+                <article>
+                  <div class = "img-box">
+                      <img src = "css-logo.jpg" alt = "customer">
+                  </div>
+
+                  <div class = "customer-text">
+                      <p>As i am doing prep in CSS i am creating styling webpages using CSS WITH BOOTSTRAP .I love to be made different website that are dynamic ready to manage different task.I am working since 1 year to work on different project .</p>
+
+                      
+                  </div>
+              </article>
+                <!-- end of customer -->
+
+                <!-- customer -->
+                <article>
+                  <div class = "img-box">
+                      <img src = "images.jpg" alt = "customer" >
+                  </div>
+
+                  <div class = "customer-text">
+                      <p>As i am doing prep in JAVASCRIPT i am creating some webpages using JAVASCRIPT and thier FRAMEWORK.I love to be made different website that are dynamic ready to manage different project.I HAVE SOME CERTIFICATION.</p>
+
+                      
+                  </div>
+              </article>
+                <!-- end of customer -->
+
+                <!-- customer -->
+                <article>
+                  <div class = "img-box">
+                      <img src = "OIP.jpg" alt = "customer" >
+                  </div>
+
+                  <div class = "customer-text">
+                      <p>As i am doing practice of BOOTSTRAP i am creating different website or front-end using css LIBRARY.I love to be made different website that are dynamic ready to manage different task.I am working since 1 year to work.</p>
+
+                      
+                  </div>
+              </article>
+                <!-- end of customer -->
+
+                <!-- customer -->
+                <article>
+                  <div class = "img-box">
+                      <img src = "OIP (1).jpg" alt = "customer" >
+                  </div>
+
+                  <div class = "customer-text">
+                      <p>As i am doing practice of jQuery I  am creating some webpages using JAVASCRIPT LIBRARY.I love to be made different website that are dynamic ready to manage different task.I am working since 1 year to work.</p>
+
+                      
+                  </div>
+              </article>
+                <!-- end of customer -->
+
+                <!-- customer -->
+                <article>
+                  <div class = "img-box">
+                      <img src = "react-js-co-ban-phan-1-63738082145.3856.jpg" alt = "customer" >
+                  </div>
+
+                  <div class = "customer-text">
+                      <p>As i am doing prep in react i am creating some webpages using react with JAVASCRIPT.I love to be made different website that are dynamic ready to manage different task.I am working since 1 year to work on different project .</p>
+
+                      
+                  </div>
+              </article>
+              <article>
+                <div class = "img-box">
+                    <img src = "php-logo.webp" alt = "customer"  >
+                </div>
+
+                <div class = "customer-text">
+                    <p>As i am doing practice of php  i am creating some webpages database using php and xampp server or mysql .I love to be made different website that are dynamic ready to manage different task.I am working since 1 year to work on different project .</p>
+
+                    
+                </div>
+            </article>
+                <!-- end of customer -->
+            </div>
+            
+        </section>
+
+
+
+
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Local JS file -->
+        <script src="r.js" async defer></script>
+
+        <!-- Owl Carousel JS file -->
+        <script src = "owl.carousel.min.js"></script>
+        <div class="wrapper">
+          <h1 class="btn1"></h1>
+            <div class="container">
+                <div class="box">
+                    <img src="xdVNGffMmenG2pumh0iKAY6jpo9vlK00HdnpShK9.png" alt="">
+                    <h2>CURD APPLICATION</h2>
+                    
+                    <a href="https://github.com/romaesa/food-mangment" class="btn">FOOD MART APP</a>
+                </div>
+                <div class="box">
+                    <img src="OIP (2).jpg" alt="">
+                    <h2>UI/UX/FRONT-END</h2>
+                    
+                    <a href="https://cakebackedromii.000webhostapp.com/" class="btn">RESPONCIVE APP</a>
+                </div>
+                
+                <div class="box">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png" alt="">
+                    <h2>JAVASCRIPT PROJECT</h2>
+                  
+                    <a href="https://github.com/romaesa/javascriptgame" class="btn">COLOR CONTROLL</a>
+                </div>
+            </div>
+      </div>
+
+        <footer>
+            
+          <div id="icons" class="icons"> 
+              <ul>
+                <li><a href="https://www.facebook.com/romaesa.hafiz.7/" class="fa fa-facebook"></a></li>
+                <li><a href="https://github.com/romaesa?tab=repositories" class="fa fa-github"></a></li>
+                <li> <a href="https://www.linkedin.com/in/romaesa-hafeez-58a056287/" class="fa fa-linkedin"></a></li>
+                </ul>
+          </div>
+          <div class="footer-bottom text-center">
+             ROMAESA &copy; 2023  MYPROTFOLIO
+           </div>
+        </footer>
+    </body>
+</html>
